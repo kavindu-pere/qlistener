@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:1.1.0
+    cpu_shares: 10
+    memswap_limit: 256m
+    mem_limit: 256m
+    environment:
+      - SERVICES=sqs:4566
+      - DEBUG=1
+    expose:
+      - "4566"
+    ports:
+      - '4566:4566'
